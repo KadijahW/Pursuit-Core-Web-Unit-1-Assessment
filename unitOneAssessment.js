@@ -4,55 +4,119 @@ let assert = require('assert')
 
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
-
+const isOdd = (num) => {
+  if(num % 2 === 0){
+    return false
+  }else if(num % 2 === 1){
+   return  true
+ }else{
+   return false
+ }
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+ runQ1Tests()
 
 
 // Question Two:
 
-// Write a function called numberOfDigits that returns how many digits are in a given number
+// Write a function called numberOfDigits that returns how many
+// digits are in a given number
 
+// write a function that takes in a numberOfDigits
+// loop through the given number ++
+// set a variable to count how many numbers are in the given argument
+ const numberOfDigits = (num) => {
+let count = num
+for(let i = 0; i < num.length;  i++){
+
+}
+}
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+ runQ2Tests()
 
 // Question Three:
 
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
-// Uncomment out the next line to test your solution
+//vowels = a,e,i,o,u
+//loop through each index in the string
+//remove all vowels
+//return all letter except vowels
+
+
+// // Uncomment out the next line to test your solution
 // runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
+// write the function
+// function to iterate through an array
+// find the second smallest number in the array
+// return one number from the array (reduce)
+
+const secondSmallest = (array) => {
+for(let i = 0; i <= array.length; i++){
+      let sort = array.sort()
+      return sort[1]
+     }
+   }
+// passes all testcases except new TestCase([1,10,7,90,5,4], 4),
+
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+ runQ4Tests()
 
 // Question Five:
-// Write a function called getLocations that takes in an array of objects that look like the array below,
-// and returns an array of the strings corresponding to the value of the location property
+// Write a function called getLocations that takes in an array of objects
+//that look like the array below,
+// and returns an array of the strings corresponding to the value of the
+//location property
 // The output should be in the same order as the input
-
-// Sample input:
-// [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
-
-// Sample output:
-// ["Algeria", "Belize", "China", "Denmark"]
-
-// Uncomment out the next line to test your solution
-// runQ5Tests()
+const getLocations = (array) => {
+  let newArr = []
+ for(let key in array){
+    newArr.push(array[key].location)
+ }return newArr
+}
+//
+// // Sample input:
+// // [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
+//
+// // Sample output:
+// // ["Algeria", "Belize", "China", "Denmark"]
+//
+// // Uncomment out the next line to test your solution
+  runQ5Tests()
 
 
 // Question Six:
 
-// Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
+// Write a function called onlyOddStrings that takes in an array of strings
+// as input and returns an array that only includes strings with an odd number
+// of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
-// Uncomment out the next line to test your solution
-// runQ6Tests()
+// want to set a variable newArr
+// that takes in strings && returns an array -- Map || filter
+// loop through the string and keep count
+// check if even or Odd -- %
+// return newArr
+
+const onlyOddStrings = (str) => {
+  //let newArr = []
+  for (let i = 0; i < str.length; i++){
+let oddString = str.filter(str.length % 2 !== 0)
+   //newArr.push(oddString)
+   console.log(str)
+ }
+   return oddString[str]
+}
+
+
+// // Uncomment out the next line to test your solution
+ runQ6Tests()
 
 
 // Question Seven:
@@ -62,16 +126,32 @@ let assert = require('assert')
 // Give it two properties set by the constructor named temperature and weather
 // Give it a method named getDescription that returns a string in the format described below
 
-// Example
-// let myDay = Day(80, "sunny")
-// myDay.getDescription() // returns "It is 80 degrees and sunny"
-
-//b.
-// Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
-// The output should be in the same order as the input
-
-// Uncomment out the next line to test your solution
-// runQ7Tests()
+class Day {
+  constructor(temperature, weather){
+    this.temperature = temperature;
+    this.weather = weather;
+  }
+  getDescription(){
+    return  `It is ${this.temperature} degrees and ${this.weather}`
+  }
+}
+// // Example
+// // let myDay = Day(80, "sunny")
+// // myDay.getDescription() // returns "It is 80 degrees and sunny"
+//
+// //b.
+// // Make a function called getAllDayDescriptions that takes in an array of
+// //Day objects and returns an array of their descriptions.  Use
+// //a higher-ordered function (e.g map, filter, reduce, every, sort) in your
+// // implementation.
+// // The output should be in the same order as the input
+const getAllDayDescriptions = (arr) => {
+  arr.map((elem) => {
+    return elem.getDescription()
+  })
+}
+// // Uncomment out the next line to test your solution
+  runQ7Tests()
 
 
 
@@ -145,9 +225,9 @@ function runQ3Tests() {
 function runQ4Tests() {
   let testCases = [
     new TestCase([5,1,4,2,5,6], 2),
-    new TestCase([1,10,7,90,5,4], 4),
     new TestCase([2,1,4,90,5,6], 2),
-    new TestCase([1,3,4,90,5,6], 3)
+    new TestCase([1,3,4,90,5,6], 3),
+    new TestCase([1,10,7,90,5,4], 4)
   ]
   runTests("Four", testCases, secondSmallest)
 }
