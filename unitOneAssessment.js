@@ -26,14 +26,12 @@ const isOdd = (num) => {
 // write a function that takes in a numberOfDigits
 // loop through the given number ++
 // set a variable to count how many numbers are in the given argument
- const numberOfDigits = (num) => {
-let count = num
-for(let i = 0; i < num.length;  i++){
-
-}
-}
-// Uncomment out the next line to test your solution
- runQ2Tests()
+ const numberOfDigits = ((num) => {
+   let str = num.toString()
+   return str.length
+})
+// // Uncomment out the next line to test your solution
+  runQ2Tests()
 
 // Question Three:
 
@@ -59,7 +57,7 @@ for(let i = 0; i < num.length;  i++){
 
 const secondSmallest = (array) => {
 for(let i = 0; i <= array.length; i++){
-      let sort = array.sort()
+      let sort = array.sort(function(a,b){return a-b})
       return sort[1]
      }
    }
@@ -104,15 +102,21 @@ const getLocations = (array) => {
 // check if even or Odd -- %
 // return newArr
 
-const onlyOddStrings = (str) => {
-  //let newArr = []
-  for (let i = 0; i < str.length; i++){
-let oddString = str.filter(str.length % 2 !== 0)
-   //newArr.push(oddString)
-   console.log(str)
- }
-   return oddString[str]
+const onlyOddStrings = (array) => {
+  return array.filter((elem) => {
+    return (elem.length % 2 !== 0)
+  })
 }
+
+
+  //let newArr = []
+//   for (let i = 0; i < str.length; i++){
+// let oddString = str.filter(str.length % 2 !== 0)
+//    //newArr.push(oddString)
+//    console.log(str)
+//  }
+//    return oddString[str]
+// }
 
 
 // // Uncomment out the next line to test your solution
@@ -146,7 +150,7 @@ class Day {
 // // implementation.
 // // The output should be in the same order as the input
 const getAllDayDescriptions = (arr) => {
-  arr.map((elem) => {
+  return arr.map((elem) => {
     return elem.getDescription()
   })
 }
